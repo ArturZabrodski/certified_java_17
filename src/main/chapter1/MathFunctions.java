@@ -1,4 +1,4 @@
-package main.test0_1;
+package main.chapter1;
 
 // 5. What is the result of the following program?
 //        A. 10

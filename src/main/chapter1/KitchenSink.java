@@ -1,4 +1,4 @@
-package main.test0_1;
+package main.chapter1;
 
 public class KitchenSink {
     private int numForks;

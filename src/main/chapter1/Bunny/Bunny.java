@@ -1,4 +1,4 @@
-package main.test0_1.Bunny;
+package main.chapter1.Bunny;
 
 public class Bunny {
     public static void main(String[] x) {

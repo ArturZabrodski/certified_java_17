@@ -1,6 +1,6 @@
-package main.test0_1.other;
+package main.chapter1.other;
 
-import main.test0_1.animal.Frog;
+import main.chapter1.animal.Frog;
 
 public class Tadpole extends Frog {
     public static void main(String[] args) {
