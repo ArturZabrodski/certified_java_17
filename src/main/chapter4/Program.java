@@ -40,9 +40,43 @@ public class Program {
          * месте строки.
          */
 
+        System.out.println("\nmethods startsWith() endsWith() contains()");
+
+        System.out.println(name.startsWith("Ar"));
         System.out.println(name.startsWith("rt"));
+
+        System.out.println(name.endsWith("ur"));
         System.out.println(name.endsWith("rt"));
+
+        System.out.println(name.contains("Ar"));
         System.out.println(name.contains("rt"));
+        System.out.println(name.endsWith("ur"));
+
+        System.out.println("\nmethod replace()");
+
+        System.out.println("abcabc".replace('a', 'A'));  // AbcAbc
+        System.out.println("aBcabc".replace("B", "b")); // abcabc
+
+        System.out.println("\nmethods strip() trim()");
+
+        /**
+         * Методы strip() и trim() удаляют пробелы из начала и конца строки.
+         * метод stripLeading() удаляет пробелы из начала строки и оставляет их в конце.
+         * Метод stripTrailing() удаляет пробелы из конца строки и оставляет их в начале.
+         */
+
+        System.out.println("abc".strip());          // abc
+        System.out.println("     a b c\n".strip()); // a b c
+        String text = " abc  ";                     // 6 символов
+        System.out.println(text.trim().length());   // 3
+        System.out.println(text.strip().length());  // 3
+        System.out.println(text.stripLeading().length()); // 8
+        System.out.println(text.stripTrailing().length());// 4
+
+        System.out.println("Text1".indent(5));     // отступ в символах и + разрыв строки
+        System.out.println("     Text2".indent(-5));  // отступ в символах и + разрыв строки
+                                                         // при отрицательном числе пробелы отступа удаляются
+        System.out.println("   T  e   x    t 3     ".stripIndent());
 
 
     }
