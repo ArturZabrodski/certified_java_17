@@ -20,8 +20,8 @@ public class Program {
         System.out.println(name.indexOf("r", 3)); // находит искать с 3 индекса - 4
 
         System.out.println("Artur".substring(2)); // начинает искать символы со 2 - tur
-        System.out.println("Artur".substring(1,3));         // начинает искать символы со 1 и заканчивает 4 не включительно - rt
-        System.out.println("Artur".substring(1,5));         // в данном случае идем до последнего 4 элемента в строке, exception не будет - rtur
+        System.out.println("Artur".substring(1, 3));         // начинает искать символы со 1 и заканчивает 4 не включительно - rt
+        System.out.println("Artur".substring(1, 5));         // в данном случае идем до последнего 4 элемента в строке, exception не будет - rtur
 //        System.out.println("Artur".substring(3,2));         // exception
 
         System.out.println(name.substring(name.indexOf('u'))); // ur
@@ -75,8 +75,90 @@ public class Program {
 
         System.out.println("Text1".indent(5));     // отступ в символах и + разрыв строки
         System.out.println("     Text2".indent(-5));  // отступ в символах и + разрыв строки
-                                                         // при отрицательном числе пробелы отступа удаляются
-        System.out.println("   T  e   x    t 3     ".stripIndent());
+        // при отрицательном числе пробелы отступа удаляются
+        System.out.println("   T  e   x    t 3     ".stripIndent()); // удаляет пробелы в начале и в конце
+
+
+        // В первой строке выводится литеральная строка \t, поскольку экранируется обратная косая черта. Во второй
+        // строке выводится фактическая вкладка с тех пор, как мы перевели escape. Этот метод можно использовать для escape
+        // -последовательностей, таких как \t (табуляция), \n (новая строка), \s (пробел), \" (двойная кавычка) и \' (одинарная кавычка).)
+        var str = "1\\t2";
+        System.out.println(str);                    // 1\t2
+        System.out.println(str.translateEscapes()); // 1	2
+
+
+        // Первая строка выводит значение false, потому что строка не является пустой; в ней есть пробел.
+        // Вторая строка выводит значение true, потому что на этот раз в строке нет символов.
+        // Последние две строки выводят значение true, поскольку в них нет никаких символов, кроме пробела.
+        System.out.println(" ".isEmpty()); // false
+        System.out.println("".isEmpty()); // true
+        System.out.println(" ".isBlank()); // true
+        System.out.println("".isBlank()); // true
+
+
+        var name1 = "Kate";
+        var orderId = 5;
+// All print: Hello Kate, order 5 is ready
+        System.out.format("Hello %s, order %d is ready%n", name1, orderId);
+        System.out.println("Hello " + name1 + ", order " + orderId + " is ready");
+        System.out.println(String.format("Hello %s, order %d is ready", name1, orderId));
+        System.out.println("Hello %s, order %d is ready".formatted(name1, orderId));
+
+/**
+ * %s Applies to any type, commonly String values
+ * %d Applies to integer values like int and long
+ * %f Applies to floating-point values like float and double
+ * %n Inserts a line break using the system-dependent line separator
+ */
+
+
+        var pi = 3.14159265359;
+        System.out.format("[%f]   %n", pi);     // [3,141593]
+        System.out.format("[%12.8f]   %n", pi); // [  3,14159265]
+        System.out.format("[%012f]   %n", pi);  // [00003.141593]
+        System.out.format("[%12.2f]   %n", pi); // [        3,14]
+        System.out.format("[%.3f]   %n", pi);   // [3.142]
+
+        String a = "abc";
+        String b = a.toUpperCase(); // ABC
+        b = b.replace("B", "2").replace('C', '3');
+        System.out.println("a=" + a); // a=abc
+        System.out.println("b=" + b); // b=A23
+
+
+        System.out.println("_____________");
+
+// String - каждый раз при изменении создается новый объект, immutable, ссылка меняется
+// StringBuilder - is not immutable, ссылка не меняется
+        String alpha1 = "";
+        for (char current = 'a'; current <= 'z'; current++)
+            alpha1 += current;
+        System.out.println(alpha1);
+
+
+        StringBuilder alpha2 = new StringBuilder();
+        for (char current = 'a'; current <= 'z'; current++)
+            alpha2.append(current);
+        System.out.println(alpha2);
+
+
+        StringBuilder a1 = new StringBuilder("abc");
+        StringBuilder b1 = a1.append("de");  // ссылки будут одиноковые ссылаются на один и тот же объект
+        b1 = b1.append("f").append("g");
+        System.out.println("a=" + a1); // a=abcdefg
+        System.out.println("b=" + b1); // b=abcdefg
+
+
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder("animal");
+        StringBuilder sb3 = new StringBuilder(10);
+
+
+        var sb = new StringBuilder("animals");
+        String sub = sb.substring(sb.indexOf("a"), sb.indexOf("al"));
+        int len = sb.length();
+        char ch = sb.charAt(6);
+        System.out.println(sub + " " + len + " " + ch);  // anim 7 s
 
 
     }
