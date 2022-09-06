@@ -2,9 +2,9 @@ package main.chapter4;
 
 public class Program {
     public static void main(String[] args) {
-        int three = 3;
+        int thr = 3;
         String four = "4";
-        System.out.println(1 + 2 + three + four); // 64
+        System.out.println(1 + 2 + thr + four); // 64
 
         System.out.println(1 + 2 + "c"); // 3c
         System.out.println("c" + 1 + 2); // c12
@@ -148,17 +148,121 @@ public class Program {
         System.out.println("a=" + a1); // a=abcdefg
         System.out.println("b=" + b1); // b=abcdefg
 
-
+//Creating a StringBuilder
         StringBuilder sb1 = new StringBuilder();
         StringBuilder sb2 = new StringBuilder("animal");
         StringBuilder sb3 = new StringBuilder(10);
 
-
+// Important StringBuilder Methods
         var sb = new StringBuilder("animals");
         String sub = sb.substring(sb.indexOf("a"), sb.indexOf("al"));
         int len = sb.length();
         char ch = sb.charAt(6);
         System.out.println(sub + " " + len + " " + ch);  // anim 7 s
+
+// Appending Values
+        var sb4 = new StringBuilder().append(1).append('c');
+        sb4.append("-").append(true);
+        System.out.println(sb4); // 1c-true
+
+// Inserting Data
+        var sb5 = new StringBuilder("animals");
+        sb5.insert(7, "-"); // animals-
+        System.out.println(sb5);
+        sb5.insert(0, "-"); // -animals-
+        System.out.println(sb5);
+        sb5.insert(4, "-"); // -ani-mals-
+        System.out.println(sb5);
+
+// Deleting Contents
+        var sb6 = new StringBuilder("abcdef");
+        sb6.delete(1, 3);           // adef - удаляет с 1 по 3 не включительно
+        System.out.println(sb6);
+        sb6.deleteCharAt(1);  // aef
+        System.out.println(sb6);
+//        sb6.deleteCharAt(5);      // exception - т.к. обращаемся к несуществующему символу
+        sb6.delete(1, 100);         // a - удалет с первого символа и дальше
+        System.out.println(sb6);
+
+
+        var builder1 = new StringBuilder("pigeon dirty");
+        builder1.replace(3, 6, "sty");
+        System.out.println(builder1); // pigsty dirty
+
+        var builder2 = new StringBuilder("pigeon dirty");
+        builder2.replace(3, 100, "");
+        System.out.println(builder2); // pig
+
+// Reversing
+        var sb7 = new StringBuilder("ABC");
+        sb7.reverse();                // CBA
+        System.out.println(sb7);
+
+// Comparing equals() and ==
+        var one = new StringBuilder();
+        var two = new StringBuilder();
+        var three = one.append("a");
+        System.out.println(one == two);   // false - ссылки на объекты разные
+        System.out.println(one == three); // true - ссылка одна и та же
+
+        System.out.println("________________");
+
+        var name3 = "a";                            // type String
+        var builder3 = new StringBuilder("a");
+//        System.out.println(name3 == (builder3));  // DOES NOT COMPILE
+        System.out.println(name3.equals(builder3)); // false, разные типы объектов
+
+        var name4 = new StringBuilder("a");
+        var builder4 = new StringBuilder("a");
+        System.out.println(name4 == builder4);      // false
+        System.out.println(name4.equals(builder4)); // false
+
+        var name5 = new String("a");
+        var name6 = new String("a");
+        var name7 = name6;
+        System.out.println(name5 == (name6));    // false, ссылки разные
+        System.out.println(name5.equals(name6)); // true, объекты одинаковые
+        System.out.println(name7 == name6);      // true, ссылка на один и тот же объект
+        System.out.println(name5.equals(name6)); // true, объекты одинаковые
+
+        System.out.println("Hello World");
+
+        var x = "Hello World";
+        var y = "Hello World";
+        var z = new String("Hello World");
+
+/**
+ * Метод intern() – возвращает каноническое представление для строкового объекта. Отсюда следует, что для любых
+ * двух строк s и t, s.intern() == t.intern(), истинно тогда и только тогда, когда s.equals(t) имеет значение true.
+ */
+
+        var z1 = new String("Hello World").intern();  // !
+        var s = new String();
+        s = "Hello World";
+
+        System.out.println(x == y);      // true
+        System.out.println(x.equals(y)); // true
+
+        System.out.println(x == z);      // false   !
+        System.out.println(x.equals(z)); // true
+        System.out.println("z1");
+        System.out.println(x == z1);      // true   !
+        System.out.println(x.equals(z1)); // true
+
+
+        System.out.println(x == s);      // true
+        System.out.println(x.equals(s)); // true
+
+        var x1 = "Hello World";
+        var z2 = " Hello World".trim();
+        System.out.println(x1 == z2);      // false
+        System.out.println(x1.equals(z2)); // true
+
+        var singleString = "hello world";
+        var concat = "hello ";
+        concat += "world";
+        System.out.println(singleString == concat);      // false
+        System.out.println(singleString.equals(concat)); // true
 
 
     }
