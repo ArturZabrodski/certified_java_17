@@ -1,6 +1,6 @@
 package main.chapter4;
 
-public class Program {
+public class ProgramString {
     public static void main(String[] args) {
         int thr = 3;
         String four = "4";
@@ -61,7 +61,7 @@ public class Program {
 
         /**
          * Методы strip() и trim() удаляют пробелы из начала и конца строки.
-         * метод stripLeading() удаляет пробелы из начала строки и оставляет их в конце.
+         * Метод stripLeading() удаляет пробелы из начала строки и оставляет их в конце.
          * Метод stripTrailing() удаляет пробелы из конца строки и оставляет их в начале.
          */
 
@@ -225,37 +225,35 @@ public class Program {
         System.out.println(name7 == name6);      // true, ссылка на один и тот же объект
         System.out.println(name5.equals(name6)); // true, объекты одинаковые
 
-        System.out.println("Hello World");
-
-        var x = "Hello World";
-        var y = "Hello World";
-        var z = new String("Hello World");
 
 /**
  * Метод intern() – возвращает каноническое представление для строкового объекта. Отсюда следует, что для любых
  * двух строк s и t, s.intern() == t.intern(), истинно тогда и только тогда, когда s.equals(t) имеет значение true.
  */
 
-        var z1 = new String("Hello World").intern();  // !
-        var s = new String();
-        s = "Hello World";
+        var x = "Hello World";
+        var y = "Hello World";
+        var z = new String("Hello World");
 
         System.out.println(x == y);      // true
         System.out.println(x.equals(y)); // true
-
         System.out.println(x == z);      // false   !
         System.out.println(x.equals(z)); // true
-        System.out.println("z1");
+
+        var z1 = new String("Hello World").intern();  // !
+
         System.out.println(x == z1);      // true   !
         System.out.println(x.equals(z1)); // true
 
+        var s = new String();
+        s = "Hello World";
 
-        System.out.println(x == s);      // true
+        System.out.println(x == s);      // true   !
         System.out.println(x.equals(s)); // true
 
         var x1 = "Hello World";
         var z2 = " Hello World".trim();
-        System.out.println(x1 == z2);      // false
+        System.out.println(x1 == z2);      // false  !
         System.out.println(x1.equals(z2)); // true
 
         var singleString = "hello world";
@@ -264,6 +262,12 @@ public class Program {
         System.out.println(singleString == concat);      // false
         System.out.println(singleString.equals(concat)); // true
 
-
+        var first = "rat" + 1;
+        var second = "r" + "a" + "t" + "1";
+        var third = "r" + "a" + "t" + new String("1");
+        System.out.println(first == second);            // true
+        System.out.println(first == second.intern());   // true
+        System.out.println(first == third);             // false
+        System.out.println(first == third.intern());    // true
     }
 }
