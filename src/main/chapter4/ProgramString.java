@@ -70,8 +70,10 @@ public class ProgramString {
         String text = " abc  ";                     // 6 символов
         System.out.println(text.trim().length());   // 3
         System.out.println(text.strip().length());  // 3
-        System.out.println(text.stripLeading().length()); // 8
-        System.out.println(text.stripTrailing().length());// 4
+        System.out.println(text.stripLeading());            // "abc  ";
+        System.out.println(text.stripLeading().length());   // 5
+        System.out.println(text.stripTrailing());           // " abc";
+        System.out.println(text.stripTrailing().length());  // 4
 
         System.out.println("Text1".indent(5));     // отступ в символах и + разрыв строки
         System.out.println("     Text2".indent(-5));  // отступ в символах и + разрыв строки
@@ -223,14 +225,14 @@ public class ProgramString {
         System.out.println(name5 == (name6));    // false, ссылки разные
         System.out.println(name5.equals(name6)); // true, объекты одинаковые
         System.out.println(name7 == name6);      // true, ссылка на один и тот же объект
-        System.out.println(name5.equals(name6)); // true, объекты одинаковые
+        System.out.println(name7.equals(name6)); // true, объекты одинаковые
 
 
 /**
  * Метод intern() – возвращает каноническое представление для строкового объекта. Отсюда следует, что для любых
  * двух строк s и t, s.intern() == t.intern(), истинно тогда и только тогда, когда s.equals(t) имеет значение true.
  */
-
+        System.out.println("________________");
         var x = "Hello World";
         var y = "Hello World";
         var z = new String("Hello World");
