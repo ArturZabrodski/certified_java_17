@@ -21,3 +21,10 @@ public class Lion extends Animal {
         lion.roar();
     }
 }
+
+// ClownFish.java
+//protected class ClownFish{} // DOES NOT COMPILE
+
+
+// BlueTang.java
+//private class BlueTang {} // DOES NOT COMPILE
