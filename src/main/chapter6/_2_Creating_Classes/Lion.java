@@ -1,4 +1,4 @@
-package main.chapter6;
+package main.chapter6._2_Creating_Classes;
 
 public class Lion extends Animal {
     protected void setProperties(int age, String n) {
