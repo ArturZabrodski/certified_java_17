@@ -1,4 +1,4 @@
-package main.chapter6._2_Creating_Classes;
+package main.chapter6._2_Creating_Classes._this;
 
 // this
 public class Flamingo {
