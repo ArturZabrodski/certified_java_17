@@ -11,4 +11,7 @@ public class Animal {
     public void setAge(int newAge) {
         age = newAge;
     }
+    private void roar() {
+        System.out.print("Animal");
+    }
 }

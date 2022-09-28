@@ -19,6 +19,9 @@ public class Lion extends Animal {
         var lion = new Lion();
         lion.setProperties(3, "kion");
         lion.roar();
+
+//        var lion = (Animal) new Lion();
+//        lion.roar();  // null, age 0, says: Roar!
     }
 }
 
