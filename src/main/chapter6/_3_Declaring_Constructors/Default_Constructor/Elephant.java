@@ -7,7 +7,7 @@ package main.chapter6._3_Declaring_Constructors.Default_Constructor;
 
 //public class Elephant extends Mammal {
 //    public Elephant() {
-//        super(); // DOES NOT COMPILE
+//        super(); // DOES NOT COMPILE, т.к. у родителя нет конструктора по умолчанию
 //    }
 //}
 
