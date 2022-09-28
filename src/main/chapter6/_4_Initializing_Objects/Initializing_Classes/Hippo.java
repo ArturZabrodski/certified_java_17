@@ -8,14 +8,13 @@ package main.chapter6._4_Initializing_Objects.Initializing_Classes;
  */
 
 public class Hippo extends Animal {
+    static {
+        System.out.print("B");
+    }
     public static void main(String[] grass) {
         System.out.print("C");
         new Hippo();
         new Hippo();
         new Hippo();
-    }
-
-    static {
-        System.out.print("B");
     }
 }
