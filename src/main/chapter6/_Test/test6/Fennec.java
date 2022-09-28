@@ -15,7 +15,7 @@ class Canine {
         logger.append(v);
     }
 
-    protected String view() {
+    protected String view() {                           // 11)
         return logger.toString();
     }
 }
@@ -37,7 +37,7 @@ public class Fennec extends Fox {
     public Fennec(int e) {            // 1)
         super("tails");         // 1.1)
         print("j");                   // 9)
-    }                                 // 11)
+    }
 
     public Fennec(short f) {
         super("eevee");
