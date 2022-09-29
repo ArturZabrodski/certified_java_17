@@ -1,4 +1,4 @@
-package main.chapter6._Test.test6;
+package main.chapter6._Test.ex6;
 
 class Canine {
     public Canine(boolean t) {
