@@ -1,0 +1,20 @@
+Java 17 включает в себя три новых ключевых слова.
+
+Ключевые слова закрытого класса
+■ sealed: указывает, что класс или интерфейс могут быть расширены / реализованы только именованными
+классами или интерфейсами
+■ permits: Используется с ключевым словом sealed для перечисления разрешенных классов и интерфейсов
+■ non-sealed: Применяется к классу или интерфейсу, который расширяет закрытый класс, указывая, что он
+может быть расширен неуказанными классами.
+
+public class sealed Frog permits GlassFrog {} // DOES NOT COMPILE
+public final class GlassFrog extends Frog {}
+
+public abstract sealed class Wolf permits Timber {}
+public final class Timber extends Wolf {}
+public final class MyWolf extends Wolf {} // DOES NOT COMPILE
+
+Первый пример не компилируется, потому что модификаторы class и sealed расположены в
+неправильном порядке. Модификатор должен быть перед типом класса. Второй пример не
+компилируется, потому что MyWolf не указан в объявлении Wolf.
+
