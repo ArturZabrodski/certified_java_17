@@ -1,0 +1,49 @@
+Для экзамена вы должны знать следующие сигнатуры метода объекта:
+■ public String toString()
+■ public boolean equals(Object)
+■ public int hashCode()
+
+Поскольку Java предполагает, что все классы расширяются из Object,
+вы также не можете объявить метод интерфейса, который несовместим с
+Object. Например, объявление абстрактного метода int toString() в
+интерфейсе не приведет к компиляции, поскольку объектная версия
+метода возвращает строку.
+
+Существует четыре формата ссылок на методы:
+■ static methods
+■ Instance methods on a particular object
+■ Instance methods on a parameter to be determined at runtime
+■ Constructors
+
+                    Method references
+
+Type                            Before colon                 After colon                    Example
+
+static methods                  Class name                   Method name                  Math::random
+
+Instance methods on             Instance variable            Method name                 str::startsWith
+a particular object                   name
+
+Instance methods on             Class name                   Method name                 String::isEmpty
+a parameter
+
+Constructor                     Class name                       new                        String::new
+
+
+Было бы неудобно писать свой собственный функциональный интерфейс каждый раз, когда вы захотите написать
+лямбду. К счастью, для вас предусмотрено большое количество функциональных интерфейсов общего назначения.
+Основные функциональные интерфейсы предоставляются в пакете java.util.function.
+<T> позволяет интерфейсу принимать объект указанного типа. Если требуется параметр второго типа,
+мы используем следующую букву, U. Если требуется отдельный возвращаемый тип, мы выбираем R для возврата в
+качестве универсального типа.
+
+Functional interface     Return type       Method name         # of parameters
+Supplier<T>                  T                get()                    0
+Consumer<T>                 void              accept(T)                1 (T)
+BiConsumer<T, U>            void              accept(T,U)              2 (T, U)
+Predicate<T>                boolean           test(T)                  1 (T)
+BiPredicate<T, U>           boolean           test(T,U)                2 (T, U)
+Function<T, R>              R                 apply(T)                 1 (T)
+BiFunction<T, U, R>         R                 apply(T,U)               2 (T, U)
+UnaryOperator<T>            T                 apply(T)                 1 (T)
+BinaryOperator<T>           T                 apply(T,T)               2 (T, T)

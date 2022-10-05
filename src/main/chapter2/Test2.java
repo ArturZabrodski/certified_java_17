@@ -1,6 +1,9 @@
 package main.chapter2;
 
 public class Test2 {
+    static boolean x; // false
+    static boolean y; // false
+
     public static void main(String[] args) {
         int pig = (short) 4;
         pig = pig++; // не увеличиться
@@ -14,8 +17,11 @@ public class Test2 {
         boolean clear = vis > 1 & (vis < 9 || ph < 2);
         boolean safe = (vis > 2) && (ph++ > 1); // ph++ не вычисляется, т.к.vis>2 false
         boolean tasty = 7 <= --ph; // ph = 6
-        System.out.println(clear + "-" + safe + "-" + tasty);
+        System.out.println(clear + "-" + safe + "-" + tasty); // true-false-false
 
+        x = x || y && !x;
+        y = y && x || y;
+        System.out.println(x + " " + y); // false false
 
         short height = 1, weight = 3;
 //        short zebra = (byte) weight * (byte) height;

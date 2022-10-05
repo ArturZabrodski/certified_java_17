@@ -33,6 +33,8 @@ public class Program {
         int amount = 0xE;
         double amount2 = 9_2.1_2;
         int amount3 = 0b101;
+        float amount4 = 12_3.3_3F;
+
 
         int f = -5;
         int n = ~f;

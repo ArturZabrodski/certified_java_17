@@ -146,17 +146,37 @@ public class ProgramArray {
 
 // Using a Multidimensional Array
         var twoD = new int[3][2];
+
+
         for (int i = 0; i < twoD.length; i++) {
             for (int j = 0; j < twoD[i].length; j++)
                 System.out.print(twoD[i][j] + " "); // print element
             System.out.println(); // time for a new row
         }
 
-
         for (int[] inner : twoD) {
             for (int num : inner)
                 System.out.print(num + " ");
             System.out.println();
         }
+
+
+        String[] arr1 = new String[5];
+        // заполняем все элементы массива
+        Arrays.fill(arr1, "Hello");
+
+        for (String s:arr1) {
+            System.out.println(s);
+        }
+
+
+        int[] arr2 = new int[5];
+        // заполняем все элементы массива
+        Arrays.fill(arr2, 5);
+
+        for (int a:arr2) {
+            System.out.println(a);
+        }
+
     }
 }
