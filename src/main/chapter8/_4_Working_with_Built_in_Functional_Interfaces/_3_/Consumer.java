@@ -1,4 +1,4 @@
-package main.chapter8._4_Working_with_Built_in_Functional_Interfaces;
+package main.chapter8._4_Working_with_Built_in_Functional_Interfaces._3_;
 
 /**
  * Implementing Consumer

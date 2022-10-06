@@ -37,7 +37,9 @@ Constructor                     Class name                       new            
 мы используем следующую букву, U. Если требуется отдельный возвращаемый тип, мы выбираем R для возврата в
 качестве универсального типа.
 
+Table 8.4
 Functional interface     Return type       Method name         # of parameters
+
 Supplier<T>                  T                get()                    0
 Consumer<T>                 void              accept(T)                1 (T)
 BiConsumer<T, U>            void              accept(T,U)              2 (T, U)
@@ -47,3 +49,67 @@ Function<T, R>              R                 apply(T)                 1 (T)
 BiFunction<T, U, R>         R                 apply(T,U)               2 (T, U)
 UnaryOperator<T>            T                 apply(T)                 1 (T)
 BinaryOperator<T>           T                 apply(T,T)               2 (T, T)
+
+
+Predicate<List> ex1 = x -> "".equals(x.get(0));
+Consumer<Long> ex2 = (Long l) -> System.out.println(l);
+BiPredicate<String, String> ex3 = (s1, s2) -> false;
+
+Function<List<String>> ex1 = x -> x.get(0); // DOES NOT COMPILE не указан возвращаемый тип
+UnaryOperator<Long> ex2 = (Long l) -> 3.14; // DOES NOT COMPILE возвращаемый тип Double, а должен быть Long
+
+
+Table 8.5
+Interface instance          Method return type          Method name             Method parameters
+
+Consumer                    Consumer                    andThen()               Consumer
+Function                    Function                    andThen()               Function
+Function                    Function                    compose()               Function
+Predicate                   Predicate                   and()                   Predicate
+Predicate                   Predicate                   negate()                —
+Predicate                   Predicate                   or()                    Predicate
+
+
+Table 8.6
+Functional interfaces       Return type                 Single abstract method      # of parameters
+
+DoubleSupplier              double                      getAsDouble                 0
+IntSupplier                 int                         getAsInt
+LongSupplier                long                        getAsLong
+
+DoubleConsumer              void                        accept                      1 (double)
+IntConsumer                                                                         1 (int)
+LongConsumer                                                                        1 (long)
+
+DoublePredicate             boolean                     test                        1 (double)
+IntPredicate                                                                        1 (int)
+LongPredicate                                                                       1 (long)
+
+DoubleFunction<R>           R                           apply                       1 (double)
+IntFunction<R>                                                                      1 (int)
+LongFunction<R>                                                                     1 (long)
+
+DoubleUnaryOperator         double                      applyAsDouble               1 (double)
+IntUnaryOperator            int                         applyAsInt                  1 (int)
+LongUnaryOperator           long                        applyAsLong                 1 (long)
+
+DoubleBinaryOperator        double                      applyAsDouble               2 (double, double)
+IntBinaryOperator           int                         applyAsInt                  2 (int, int)
+LongBinaryOperator          long                        applyAsLong                 2 (long, long)
+
+
+Все три из этих состояний взаимозаменяемы:
+Predicate<String> p = x -> true;
+Predicate<String> p = (var x) -> true;
+Predicate<String> p = (String x) -> true;
+
+5: (var x, y) - > "Hello" // DOES NOT COMPILE
+6: (var x, Integer y) -> true // DOES NOT COMPILE
+7: (String x, var y, Integer z) -> true // DOES NOT COMPILE
+8: (Integer x, y) -> "goodbye" // DOES NOT COMPILE
+
+в строке 5 необходимо удалить var из x или добавить его в y.
+в строках 6 и 7 необходимо последовательно использовать type или var.
+в строке 8 необходимо удалить целое число из x или добавить тип в y.
+
+
