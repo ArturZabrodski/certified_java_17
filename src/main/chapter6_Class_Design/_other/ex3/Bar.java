@@ -1,14 +1,14 @@
-package main.chapter6_Class_Design._other;
+package main.chapter6_Class_Design._other.ex3;
 
-class Foo3{
+class Foo {
 
-    Object myMethod(String argument){
+    Object myMethod(String argument) {
         return null;
     }
 }
 
-public class Bar3 extends Foo3{
-    String myMethod(Object argument){  // override
+public class Bar extends Foo {
+    String myMethod(Object argument) {  // override
         return null;
     }
 //    String myMethod(Object argument){    // overload

@@ -1,4 +1,4 @@
-package main.chapter9_Collections_and_Generics._1_Using_Common_Collection_APIs;
+package main.chapter9_Collections_and_Generics._1_Collections;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,6 +13,7 @@ import java.util.List;
  * <p>
  * Queue: Очередь - это коллекция, которая упорядочивает свои элементы в
  * определенном порядке для обработки.
+ * <p>
  * Deque - это подинтерфейс очереди, который обеспечивает доступ с обоих концов.
  * <p>
  * Map: Map - это коллекция, которая сопоставляет ключи со значениями, при этом дубликаты
