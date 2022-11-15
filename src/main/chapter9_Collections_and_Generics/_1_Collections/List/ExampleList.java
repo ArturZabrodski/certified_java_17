@@ -1,9 +1,6 @@
 package main.chapter9_Collections_and_Generics._1_Collections.List;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.function.UnaryOperator;
 
 /**

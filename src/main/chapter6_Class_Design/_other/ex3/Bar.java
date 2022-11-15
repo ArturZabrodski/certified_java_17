@@ -8,14 +8,16 @@ class Foo {
 }
 
 public class Bar extends Foo {
-    String myMethod(Object argument) {  // override
+    String myMethod(String argument) {  // override
         return null;
     }
-//    String myMethod(Object argument){    // overload
+
+//    String myMethod(Object argument){ // overload
 //        return null;
 //    }
-//    Object myMethod(Object argument){    // overload
-//        return null;
-//    }
+
+    Object myMethod(Object argument){  // overload
+        return null;
+    }
 
 }

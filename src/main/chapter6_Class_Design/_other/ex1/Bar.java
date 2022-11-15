@@ -20,12 +20,15 @@ public class Bar extends Foo {
 
         System.out.println(foo.myField);    // Foo
         System.out.println(foo.myMethod()); // Foo, метод static на уровне класса запускается, объект необязателен
-        System.out.println(Foo.myMethod()); // Foo
+        System.out.println(Foo.myMethod()); // Foo, запускается именно етод класса
 
         Bar bar = new Bar();
 
         System.out.println(bar.myField);    // Bar
         System.out.println(bar.myMethod()); // Bar, метод static на уровне класса запускается, объект необязателен
-        System.out.println(Bar.myMethod()); // Bar
+        System.out.println(Bar.myMethod()); // Bar, запускается именно метод класса
+
+        // если в Bar не будет метода myMethod, то при вызове запуститься метод
+        // из родительского класса, и будет выведено Foo
     }
 }

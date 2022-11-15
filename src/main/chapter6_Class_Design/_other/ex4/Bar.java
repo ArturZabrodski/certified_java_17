@@ -23,7 +23,8 @@ public class Bar extends Foo {
         System.out.println(bar.name);  // Bar
 
         Foo foo = new Bar();
-        System.out.println(Foo.name);
+//      foo.printName();               // метод не будет виден
+        System.out.println(Foo.name);  // Foo
 
     }
 }

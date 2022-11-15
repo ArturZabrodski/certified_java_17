@@ -1,0 +1,4 @@
+package main.chapter11_Exception_and_Localization._1_Understanding_Exceptions._2_Calling_Methods_That_Throw_Exceptions;
+
+class NoMoreCarrotsException extends Exception {
+}
